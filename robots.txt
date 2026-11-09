@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ds-kell.github.io/sitemap.xml
