@@ -40,8 +40,8 @@ CONTENT = {
     "download_for": "Download", "source": "Source code", "your_system": "Your system",
     "apps": {
       "notify": {
-        "name": "HyperNotifyFix", "card": "Fix late notifications on Xiaomi and choose your power-key AI assistant",
-        "h2": "HyperNotifyFix: fix delayed notifications on Xiaomi HyperOS &amp; MIUI",
+        "name": "HyperNotifyFix", "card": "Fix late notifications on Xiaomi and replace Xiao AI with Gemini, ChatGPT or Claude",
+        "h2": "HyperNotifyFix: fix delayed notifications on Xiaomi HyperOS &amp; MIUI, and swap Xiao AI for Gemini, ChatGPT or Claude",
         "chips": ["Android 8+", "Xiaomi · Redmi · POCO", "No root"],
         "problem": "<strong>Zalo, Messenger, Gmail, Telegram or WhatsApp notifications arrive late, or only when you open the app?</strong> HyperOS freezes apps and Google Play Services in the background to save battery. HyperNotifyFix finds what is blocking your notifications and fixes it, without root, through Shizuku.",
         "features": [
@@ -113,7 +113,7 @@ CONTENT = {
   },
   "vi": {
     "path": "vi/", "html_lang": "vi", "og_locale": "vi_VN", "currency": "VND",
-    "title": "Sửa thông báo bị trễ trên Xiaomi, phần mềm chuyển đổi file &amp; auto click miễn phí",
+    "title": "Sửa thông báo trễ &amp; đổi trợ lý AI trên Xiaomi, chuyển đổi file, auto click miễn phí",
     "description": "App miễn phí, mã nguồn mở: HyperNotifyFix sửa thông báo Zalo, Messenger bị trễ trên Xiaomi HyperOS/MIUI và đổi trợ lý nút nguồn sang Gemini, ChatGPT, Claude, không cần root; ConvertApp chuyển ảnh, Word, PDF, Excel không cần mạng; Kell Auto Clicker tự động click chuột.",
     "og_title": "Sửa thông báo trễ Xiaomi, chuyển đổi file, auto click – miễn phí",
     "og_description": "Không root, không quảng cáo, không cần tài khoản. Tải cho Android, Windows, macOS, Linux.",
@@ -127,8 +127,8 @@ CONTENT = {
     "download_for": "Tải về", "source": "Mã nguồn", "your_system": "Máy của bạn",
     "apps": {
       "notify": {
-        "name": "HyperNotifyFix", "card": "Sửa thông báo bị trễ trên Xiaomi, đổi trợ lý AI cho nút nguồn",
-        "h2": "HyperNotifyFix: sửa thông báo Zalo, Messenger bị trễ trên Xiaomi HyperOS, MIUI",
+        "name": "HyperNotifyFix", "card": "Sửa thông báo bị trễ trên Xiaomi, thay trợ lý AI mặc định bằng Gemini, ChatGPT, Claude",
+        "h2": "HyperNotifyFix: sửa thông báo Zalo, Messenger bị trễ trên Xiaomi HyperOS, MIUI và đổi trợ lý AI sang Gemini, ChatGPT, Claude",
         "chips": ["Android 8+", "Xiaomi · Redmi · POCO", "Không cần root"],
         "problem": "<strong>Thông báo Zalo, Messenger, Gmail, Telegram đến muộn, hoặc chỉ hiện khi mở app?</strong> HyperOS “đóng băng” app và Google Play Services khi chạy nền để tiết kiệm pin, nên thông báo bị giữ lại. HyperNotifyFix tìm đúng nguyên nhân và gỡ các giới hạn đó, không cần root, thông qua Shizuku.",
         "features": [
