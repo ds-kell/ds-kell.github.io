@@ -122,3 +122,56 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 
 footer { color: var(--muted); font-size: 14px; padding: 16px 0 56px; text-align: center; }
 footer a { color: var(--text); }
+
+/* ---------- Donate: visible everywhere, not just at the bottom ---------- */
+:root { --coffee: #c2410c; --coffee-soft: #fff4e6; --coffee-ink: #7c2d12; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --coffee: #fb923c; --coffee-soft: #2a1a0c; --coffee-ink: #fed7aa; }
+}
+.nav-donate { display: inline-flex; align-items: center; gap: 6px; margin-left: 6px; text-decoration: none;
+  font-size: 14px; font-weight: 700; padding: 7px 12px; border-radius: 999px; color: #fff; background: var(--coffee);
+  transition: filter .15s; }
+.nav-donate:hover { filter: brightness(1.1); }
+.nav-donate svg { width: 16px; height: 16px; }
+@media (max-width: 420px) { .nav-donate span { display: none; } .nav-donate { padding: 8px; } }
+
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: -12px 0 40px; }
+.btn.dark { background: var(--text); color: var(--bg); }
+.btn.coffee { background: var(--coffee-soft); color: var(--coffee); border: 1px solid color-mix(in srgb, var(--coffee) 35%, transparent); }
+
+.nudge { display: flex; align-items: center; gap: 8px; margin: 18px 0 0; font-size: 14.5px; color: var(--muted); }
+.nudge svg { width: 18px; height: 18px; color: var(--coffee); flex: none; }
+.nudge a { color: var(--coffee); font-weight: 700; text-decoration: none; }
+.nudge a:hover { text-decoration: underline; }
+
+.donate { position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr auto; gap: clamp(24px, 5vw, 56px);
+  align-items: center; margin: 48px 0 32px; padding: clamp(24px, 5vw, 52px); border-radius: 28px;
+  background: linear-gradient(135deg, var(--coffee-soft), var(--surface) 60%, var(--violet-soft));
+  border: 1px solid color-mix(in srgb, var(--coffee) 30%, var(--border)); box-shadow: var(--shadow); }
+.donate .kicker { display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--coffee); background: var(--surface); border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.donate h2 { display: flex; align-items: center; gap: 12px; font-size: clamp(28px, 4.6vw, 42px); line-height: 1.15;
+  letter-spacing: -0.02em; margin: 16px 0 12px; }
+.donate h2 svg { width: 1em; height: 1em; color: var(--coffee); flex: none; }
+.donate p { font-size: 17.5px; margin: 0 0 24px; max-width: 520px; }
+.btn.paypal { background: #0070e0; font-size: 16.5px; padding: 14px 24px; }
+.donate .bank { margin-top: 18px; max-width: 460px; background: var(--surface); border: 1px solid var(--border); }
+.bank-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 4px; }
+.copy { display: inline-flex; align-items: center; gap: 8px; font: inherit; cursor: pointer; padding: 4px 4px 4px 4px;
+  border-radius: 10px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); }
+.copy code { border: 0; background: none; font-size: 15px; font-weight: 600; }
+.copy span { font-size: 13px; font-weight: 700; padding: 3px 10px; border-radius: 7px; background: var(--coffee); color: #fff; }
+.donate .thanks { font-size: 14.5px; color: var(--muted); margin: 18px 0 0; }
+.qr { margin: 0; text-align: center; padding: 14px; background: var(--surface); border-radius: 22px;
+  border: 1px solid var(--border); box-shadow: var(--shadow); transform: rotate(1.5deg); }
+.qr img { display: block; width: 220px; border-radius: 12px; }
+.qr figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; max-width: 220px; }
+@media (max-width: 760px) { .donate { grid-template-columns: 1fr; } .qr { justify-self: center; transform: none; } }
+
+.float-donate { position: fixed; right: 16px; bottom: 16px; z-index: 20; display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none; font-weight: 700; font-size: 14.5px; padding: 12px 16px; border-radius: 999px; color: #fff;
+  background: var(--coffee); box-shadow: 0 8px 24px rgb(0 0 0 / 22%);
+  opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity .2s, transform .2s; }
+.float-donate.show { opacity: 1; transform: none; pointer-events: auto; }
+.float-donate svg { width: 18px; height: 18px; }
+@media (prefers-reduced-motion: reduce) { .float-donate, html { transition: none; scroll-behavior: auto; } }

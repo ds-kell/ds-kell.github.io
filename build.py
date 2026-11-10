@@ -30,7 +30,9 @@ CONTENT = {
     "description": "Free open-source apps: HyperNotifyFix fixes late notifications on Xiaomi HyperOS/MIUI and puts Gemini, ChatGPT or Claude on the power button, without root; ConvertApp converts images, PDF, Word, Excel offline; Kell Auto Clicker records and replays mouse and keyboard.",
     "og_title": "Free tools: Xiaomi notification fix, file converter, auto clicker",
     "og_description": "No root, no ads, no account. Download for Android, Windows, macOS and Linux.",
-    "nav": {"apps": "Apps", "support": "Support"},
+    "nav": {"apps": "Apps", "support": "Support", "donate": "Buy me a coffee"},
+    "cta_apps": "See the apps", "cta_donate": "Buy me a coffee",
+    "after_download": "Saved you some time? <a href=\"#support\">Buy me a coffee ☕</a>",
     "pills": ["100% free", "Open source", "No ads", "No account"],
     "h1": "Small free tools that <em>just fix it</em>",
     "lead": "Fix late notifications on Xiaomi, convert files without uploading them, and automate repetitive clicks. Nothing is sent anywhere.",
@@ -104,6 +106,8 @@ CONTENT = {
       "text": "All apps are free and will stay free. If one saved you time, a small tip keeps them maintained. Thank you!",
       "paypal": "Donate with PayPal", "bank_label": "Bank transfer (Vietnam, VietQR)",
       "qr_alt": "VietQR bank transfer QR code, VietinBank, NGUYEN TUAN TRUYEN",
+      "kicker": "Free forever, supported by people like you", "or": "or scan with any banking app",
+      "copy": "Copy", "copied": "Copied", "thanks": "Every coffee goes into fixes and new features.",
     },
     "footer": "Found a bug or have an idea? Open an issue on GitHub.",
   },
@@ -113,7 +117,9 @@ CONTENT = {
     "description": "App miễn phí, mã nguồn mở: HyperNotifyFix sửa thông báo Zalo, Messenger bị trễ trên Xiaomi HyperOS/MIUI và đổi trợ lý nút nguồn sang Gemini, ChatGPT, Claude, không cần root; ConvertApp chuyển ảnh, Word, PDF, Excel không cần mạng; Kell Auto Clicker tự động click chuột.",
     "og_title": "Sửa thông báo trễ Xiaomi, chuyển đổi file, auto click – miễn phí",
     "og_description": "Không root, không quảng cáo, không cần tài khoản. Tải cho Android, Windows, macOS, Linux.",
-    "nav": {"apps": "Ứng dụng", "support": "Ủng hộ"},
+    "nav": {"apps": "Ứng dụng", "support": "Ủng hộ", "donate": "Mời cà phê"},
+    "cta_apps": "Xem ứng dụng", "cta_donate": "Mời mình ly cà phê",
+    "after_download": "Thấy có ích? <a href=\"#support\">Mời mình ly cà phê ☕</a>",
     "pills": ["Miễn phí 100%", "Mã nguồn mở", "Không quảng cáo", "Không cần tài khoản"],
     "h1": "Công cụ nhỏ, miễn phí, <em>sửa là chạy</em>",
     "lead": "Sửa thông báo bị trễ trên Xiaomi, chuyển đổi file không cần tải lên mạng, tự động hoá những cú click lặp lại. Không gửi dữ liệu đi đâu cả.",
@@ -187,6 +193,8 @@ CONTENT = {
       "text": "Các app đều miễn phí và sẽ luôn miễn phí. Nếu thấy có ích, một chút ủng hộ giúp mình có thêm thời gian duy trì và cập nhật. Cảm ơn bạn!",
       "paypal": "Ủng hộ qua PayPal", "bank_label": "Chuyển khoản / quét VietQR",
       "qr_alt": "Mã QR chuyển khoản VietQR VietinBank NGUYEN TUAN TRUYEN",
+      "kicker": "Miễn phí mãi mãi, nhờ những người như bạn", "or": "hoặc quét mã bằng app ngân hàng bất kỳ",
+      "copy": "Chép", "copied": "Đã chép", "thanks": "Mỗi ly cà phê là thêm thời gian để sửa lỗi và làm tính năng mới.",
     },
     "footer": "Gặp lỗi hoặc có ý tưởng? Tạo issue trên GitHub.",
   },
@@ -208,6 +216,24 @@ SCRIPT = """<script>
   var ua = navigator.userAgent, os = /Windows/.test(ua) ? 'windows' : /Mac OS X|Macintosh/.test(ua) && !/iPhone|iPad/.test(ua) ? 'mac'
          : /Linux/.test(ua) && !/Android/.test(ua) ? 'linux' : null;
   if (os) document.querySelectorAll('.os[data-os="' + os + '"]').forEach(function (el) { el.classList.add('is-you'); });
+  // Copy the bank account number.
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var label = b.querySelector('span'), old = label.textContent;
+      (navigator.clipboard ? navigator.clipboard.writeText(b.dataset.copy) : Promise.reject()).then(function () {
+        label.textContent = b.dataset.done; setTimeout(function () { label.textContent = old; }, 1600);
+      }, function () {});
+    });
+  });
+  // Floating coffee button: show after the hero, hide while the donate section is on screen.
+  var fab = document.querySelector('.float-donate'), hero = document.querySelector('.hero'),
+      donate = document.getElementById('support');
+  if (fab && 'IntersectionObserver' in window) {
+    var past = false, atDonate = false;
+    function sync() { fab.classList.toggle('show', past && !atDonate); }
+    new IntersectionObserver(function (e) { past = !e[0].isIntersecting; sync(); }).observe(hero);
+    new IntersectionObserver(function (e) { atDonate = e[0].isIntersecting; sync(); }).observe(donate);
+  }
 })();
 </script>"""
 
@@ -256,6 +282,7 @@ def app_section(key, app, c):
     <a class="btn" href="{GH}/{REPO[key]}/releases/latest">{ICONS["download"]}{app["button"]}</a>
     <a class="btn ghost" href="{GH}/{REPO[key]}">{c["source"]}</a>
   </div>
+  <p class="nudge">{ICONS["heart"]}<span>{c["after_download"]}</span></p>
 </section>'''
 
 
@@ -304,8 +331,8 @@ def page(lang):
   <a class="brand" href="{root}{c["path"]}"><span class="brand-mark">dk</span>ds-kell</a>
   <nav>
     <a class="link" href="#apps">{c["nav"]["apps"]}</a>
-    <a class="link" href="#support">{c["nav"]["support"]}</a>
     <a class="link" href="{GH}">GitHub</a>
+    <a class="nav-donate" href="#support">{ICONS["heart"]}<span>{c["nav"]["donate"]}</span></a>
     <span class="lang">{lang_switch}</span>
   </nav>
 </div></header>
@@ -315,26 +342,38 @@ def page(lang):
   <div class="pills">{pills}</div>
   <h1>{c["h1"]}</h1>
   <p class="lead">{c["lead"]}</p>
+  <div class="hero-cta">
+    <a class="btn dark" href="#apps">{c["cta_apps"]} ↓</a>
+    <a class="btn coffee" href="#support">{ICONS["heart"]}{c["cta_donate"]}</a>
+  </div>
   <div class="cards" id="apps">{cards}</div>
 </div></section>
 
 <div class="wrap">
 {apps}
 
-<section class="app a-green" id="support">
-  <div class="support">
-    <div>
-      <div class="app-head"><div class="icon">{ICONS["heart"]}</div><div><h2>{s["h2"]}</h2></div></div>
-      <p class="problem">{s["text"]}</p>
-      <a class="btn" href="{PAYPAL}">{s["paypal"]}</a>
-      <div class="bank"><b>{s["bank_label"]}</b>{BANK[0]} · {BANK[1]} · {BANK[2]}</div>
+<section class="donate" id="support">
+  <div class="donate-text">
+    <span class="kicker">{s["kicker"]}</span>
+    <h2>{ICONS["heart"]}{s["h2"]}</h2>
+    <p>{s["text"]}</p>
+    <a class="btn paypal" href="{PAYPAL}">{s["paypal"]} →</a>
+    <div class="bank">
+      <b>{s["bank_label"]}</b>
+      <div class="bank-row"><span>{BANK[0]} · {BANK[1]}</span>
+        <button class="copy" type="button" data-copy="{BANK[2]}" data-done="{s["copied"]}"><code>{BANK[2]}</code><span>{s["copy"]}</span></button></div>
     </div>
-    <img src="{root}assets/donate-vietqr.jpg" alt="{s["qr_alt"]}" width="220" height="391" loading="lazy">
+    <p class="thanks">{s["thanks"]}</p>
   </div>
+  <figure class="qr">
+    <img src="{root}assets/donate-vietqr.jpg" alt="{s["qr_alt"]}" width="220" height="391" loading="lazy">
+    <figcaption>{s["or"]}</figcaption>
+  </figure>
 </section>
 </div>
 </main>
 
+<a class="float-donate" href="#support" aria-label="{c["nav"]["donate"]}">{ICONS["heart"]}<span>{c["nav"]["donate"]}</span></a>
 <footer class="wrap">{c["footer"]} · <a href="{GH}">github.com/ds-kell</a></footer>
 {SCRIPT}
 </body>
