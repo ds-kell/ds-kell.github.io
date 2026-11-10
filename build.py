@@ -27,7 +27,7 @@ CONTENT = {
   "en": {
     "path": "", "html_lang": "en", "og_locale": "en_US", "currency": "USD",
     "title": "Fix Xiaomi Notification Delay, Free File Converter &amp; Auto Clicker | ds-kell",
-    "description": "Free open-source apps: HyperNotifyFix fixes late notifications on Xiaomi HyperOS/MIUI without root; ConvertApp converts images, PDF, Word, Excel offline; Kell Auto Clicker records and replays mouse and keyboard.",
+    "description": "Free open-source apps: HyperNotifyFix fixes late notifications on Xiaomi HyperOS/MIUI and puts Gemini, ChatGPT or Claude on the power button, without root; ConvertApp converts images, PDF, Word, Excel offline; Kell Auto Clicker records and replays mouse and keyboard.",
     "og_title": "Free tools: Xiaomi notification fix, file converter, auto clicker",
     "og_description": "No root, no ads, no account. Download for Android, Windows, macOS and Linux.",
     "nav": {"apps": "Apps", "support": "Support"},
@@ -38,7 +38,7 @@ CONTENT = {
     "download_for": "Download", "source": "Source code", "your_system": "Your system",
     "apps": {
       "notify": {
-        "name": "HyperNotifyFix", "card": "Fix late notifications on Xiaomi, Redmi, POCO",
+        "name": "HyperNotifyFix", "card": "Fix late notifications on Xiaomi and choose your power-key AI assistant",
         "h2": "HyperNotifyFix: fix delayed notifications on Xiaomi HyperOS &amp; MIUI",
         "chips": ["Android 8+", "Xiaomi · Redmi · POCO", "No root"],
         "problem": "<strong>Zalo, Messenger, Gmail, Telegram or WhatsApp notifications arrive late, or only when you open the app?</strong> HyperOS freezes apps and Google Play Services in the background to save battery. HyperNotifyFix finds what is blocking your notifications and fixes it, without root, through Shizuku.",
@@ -46,7 +46,8 @@ CONTENT = {
           "Turns off battery optimization (Doze) and background limits for the apps you pick",
           "Adds them to Xiaomi’s hidden MILLET and low-latency whitelists, refreshes MiPush and reconnects Google push (FCM)",
           "Every change is previewed, backed up and reversible. Dry Run is on by default",
-          "Keeps the fix after a reboot and after HyperOS rewrites it",
+          "<b>AI assistant on the power button:</b> replace Xiao AI with Gemini, ChatGPT, Claude or any installed assistant. After the first setup you can switch without Shizuku",
+          "Keeps every fix after a reboot and after HyperOS rewrites it (HyperOS China resets the assistant on every boot)",
           "Tested on Xiaomi 15 Ultra (HyperOS 3). Other HyperOS / MIUI phones should work: please report your results",
         ],
         "steps": [
@@ -55,6 +56,7 @@ CONTENT = {
           "Settings → About phone → tap <b>OS version</b> 7 times. Then Additional settings → Developer options → turn on <b>Wireless debugging</b>.",
           "Open Shizuku → <b>Start via Wireless debugging</b> → pair with the code → <b>Start</b>.",
           "Open HyperNotifyFix → allow Shizuku → pick the apps with late notifications → <b>Run diagnostics</b> → turn off Dry Run → <b>Apply</b>.",
+          "Optional: Settings → <b>Trợ lý AI cho nút nguồn</b> (AI assistant for the power key) → pick Gemini, ChatGPT, Claude… → <b>Apply</b>.",
         ],
         "note": "Battery use may rise slightly. No app can guarantee instant notifications: the sender’s server and your network matter too.",
         "button": "Download APK",
@@ -108,7 +110,7 @@ CONTENT = {
   "vi": {
     "path": "vi/", "html_lang": "vi", "og_locale": "vi_VN", "currency": "VND",
     "title": "Sửa thông báo bị trễ trên Xiaomi, phần mềm chuyển đổi file &amp; auto click miễn phí",
-    "description": "App miễn phí, mã nguồn mở: HyperNotifyFix sửa thông báo Zalo, Messenger bị trễ trên Xiaomi HyperOS/MIUI không cần root; ConvertApp chuyển ảnh, Word, PDF, Excel không cần mạng; Kell Auto Clicker tự động click chuột.",
+    "description": "App miễn phí, mã nguồn mở: HyperNotifyFix sửa thông báo Zalo, Messenger bị trễ trên Xiaomi HyperOS/MIUI và đổi trợ lý nút nguồn sang Gemini, ChatGPT, Claude, không cần root; ConvertApp chuyển ảnh, Word, PDF, Excel không cần mạng; Kell Auto Clicker tự động click chuột.",
     "og_title": "Sửa thông báo trễ Xiaomi, chuyển đổi file, auto click – miễn phí",
     "og_description": "Không root, không quảng cáo, không cần tài khoản. Tải cho Android, Windows, macOS, Linux.",
     "nav": {"apps": "Ứng dụng", "support": "Ủng hộ"},
@@ -119,7 +121,7 @@ CONTENT = {
     "download_for": "Tải về", "source": "Mã nguồn", "your_system": "Máy của bạn",
     "apps": {
       "notify": {
-        "name": "HyperNotifyFix", "card": "Sửa thông báo bị trễ trên Xiaomi, Redmi, POCO",
+        "name": "HyperNotifyFix", "card": "Sửa thông báo bị trễ trên Xiaomi, đổi trợ lý AI cho nút nguồn",
         "h2": "HyperNotifyFix: sửa thông báo Zalo, Messenger bị trễ trên Xiaomi HyperOS, MIUI",
         "chips": ["Android 8+", "Xiaomi · Redmi · POCO", "Không cần root"],
         "problem": "<strong>Thông báo Zalo, Messenger, Gmail, Telegram đến muộn, hoặc chỉ hiện khi mở app?</strong> HyperOS “đóng băng” app và Google Play Services khi chạy nền để tiết kiệm pin, nên thông báo bị giữ lại. HyperNotifyFix tìm đúng nguyên nhân và gỡ các giới hạn đó, không cần root, thông qua Shizuku.",
@@ -127,7 +129,8 @@ CONTENT = {
           "Tắt tối ưu pin (Doze) và giới hạn chạy nền cho các app bạn chọn",
           "Thêm vào whitelist ẩn MILLET và low-latency của Xiaomi, làm mới MiPush, kết nối lại thông báo Google (FCM)",
           "Mọi thay đổi đều được xem trước, sao lưu và hoàn tác được. Chế độ chạy thử (Dry Run) bật sẵn",
-          "Tự giữ thiết lập sau khi khởi động lại máy hoặc khi HyperOS ghi đè",
+          "<b>Trợ lý AI cho nút nguồn:</b> thay Xiao AI bằng Gemini, ChatGPT, Claude hoặc bất kỳ trợ lý nào đã cài. Sau lần cài đầu, đổi qua lại không cần Shizuku",
+          "Tự giữ mọi thiết lập sau khi khởi động lại hoặc khi HyperOS ghi đè (HyperOS bản Trung Quốc xoá trợ lý sau mỗi lần khởi động)",
           "Đã thử trên Xiaomi 15 Ultra (HyperOS 3). Máy HyperOS / MIUI khác cũng dùng được: mong bạn báo lại kết quả",
         ],
         "steps": [
@@ -136,6 +139,7 @@ CONTENT = {
           "Cài đặt → Giới thiệu điện thoại → bấm 7 lần vào <b>Phiên bản HĐH</b>. Sau đó Cài đặt bổ sung → Tùy chọn nhà phát triển → bật <b>Gỡ lỗi không dây</b>.",
           "Mở Shizuku → <b>Khởi động qua Gỡ lỗi không dây</b> → ghép nối bằng mã → <b>Bắt đầu</b>.",
           "Mở HyperNotifyFix → cho phép Shizuku → chọn app bị trễ thông báo → <b>Chẩn đoán</b> → tắt Dry Run → <b>Áp dụng</b>.",
+          "Tuỳ chọn: Cài đặt → thẻ <b>Trợ lý AI cho nút nguồn</b> → chọn Gemini, ChatGPT, Claude… → <b>Áp dụng</b>.",
         ],
         "note": "Pin có thể hao hơn một chút. Không app nào đảm bảo thông báo đến ngay lập tức: còn tuỳ máy chủ của app gửi và mạng của bạn.",
         "button": "Tải APK",
